@@ -21,7 +21,7 @@
   <!--<preference name="android-build-tool" value="gradle" />
   <platform name="winphone|android" />-->
 
-  <gap:plugin name="cordova-plugin-inappbrowser" spec="*" />
+  <gap:plugin name="cordova-plugin-inappbrowser" spec="1.7.1" />
   <gap:plugin name="cordova-plugin-bluetooth-serial" spec="*"/>
   <gap:plugin name="cordova-plugin-fcm" spec="*"/>
 
