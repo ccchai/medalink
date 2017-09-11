@@ -1,0 +1,344 @@
+﻿
+<form name="myForm" ng-submit="submitForm(myForm)" novalidate style="margin: 120px auto 70px auto">
+
+    <table class="form-table-horizontal" ng-show="tab == 1">
+        <tr>
+            <th>
+                <label for="Kedai">Kedai Pernama</label>
+            </th>
+
+            <td>
+                <input id="Kedai" name="Kedai" type="text" ng-model="current.Kedai" required autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Code">Pemohon ID</label>
+            </th>
+
+            <td>
+                <input id="Code" name="Code" type="text" ng-model="current.Code" required autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Name">Nama</label>
+            </th>
+
+            <td>
+                <input type="text" id="Name" name="Name" ng-model="current.Name" required autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Unit">Unit</label>
+            </th>
+
+            <td>
+                <input type="text" id="Unit" name="Unit" ng-model="current.Unit" required autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Phone">Phone</label>
+            </th>
+
+            <td>
+                <input type="tel" id="Phone" name="Phone" ng-model="current.Phone" required autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Address">Alamat</label>
+            </th>
+
+            <td>
+                <textarea id="Address" name="Address" ng-model="current.Address" required></textarea>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Remark">Remark</label>
+            </th>
+
+            <td>
+                <textarea id="Remark" name="Remark" ng-model="current.Remark"></textarea>
+            </td>
+        </tr>
+    </table>
+
+    <div ng-show="tab == 2">
+
+        <table class="form-table-horizontal" style="margin-bottom: 40px">
+            <tr>
+                <td colspan="2"><b>Item 1</b></td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="Sku1">SKU</label>
+                </th>
+                <td>
+                    <input id="Sku1" name="Sku1" type="text" ng-model="current.Sku1" autocomplete="off" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="Item1">Produk</label>
+                </th>
+                <td>
+                    <input id="Item1" name="Item1" type="text" ng-model="current.Item1" autocomplete="off" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="Price1">Harga Runcit</label>
+                </th>
+                <td>
+                    <input id="Price1" name="Price1" type="number" ng-model="current.Price1" autocomplete="off" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="Gst1">GST</label>
+                </th>
+                <td>
+                    <input id="Gst1" name="Gst1" type="number" ng-model="current.Gst1" autocomplete="off" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="TotalPrice1">Harga Jualan</label>
+                </th>
+                <td>
+                    <input id="TotalPrice1" name="TotalPrice1" type="number" ng-model="current.TotalPrice1" autocomplete="off" />
+                </td>
+            </tr>
+        </table>
+ 
+        <table class="form-table-horizontal" style="margin-bottom: 40px">
+            <tr>
+                <td colspan="2"><b>Item 2</b></td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="Sku2">SKU</label>
+                </th>
+                <td>
+                    <input id="Sku2" name="Sku2" type="text" ng-model="current.Sku2" autocomplete="off" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="Item2">Produk</label>
+                </th>
+                <td>
+                    <input id="Item2" name="Item2" type="text" ng-model="current.Item2" autocomplete="off" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="Price2">Harga Runcit</label>
+                </th>
+                <td>
+                    <input id="Price2" name="Price2" type="number" ng-model="current.Price2" autocomplete="off" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="Gst2">GST</label>
+                </th>
+                <td>
+                    <input id="Gst2" name="Gst2" type="number" ng-model="current.Gst2" autocomplete="off" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="TotalPrice2">Harga Jualan</label>
+                </th>
+                <td>
+                    <input id="TotalPrice2" name="TotalPrice2" type="number" ng-model="current.TotalPrice2" autocomplete="off" />
+                </td>
+            </tr>
+        </table>
+
+        <table class="form-table-horizontal">
+            <tr>
+                <td colspan="2"><b>Item 3</b></td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="Sku3">SKU</label>
+                </th>
+                <td>
+                    <input id="Sku3" name="Sku3" type="text" ng-model="current.Sku3" autocomplete="off" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="Item3">Produk</label>
+                </th>
+                <td>
+                    <input id="Item3" name="Item3" type="text" ng-model="current.Item3" autocomplete="off" />
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="Price3">Harga Runcit</label>
+                </th>
+                <td>
+                    <input id="Price3" name="Price3" type="number" ng-model="current.Price3" autocomplete="off" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="Gst3">GST</label>
+                </th>
+                <td>
+                    <input id="Gst3" name="Gst3" type="number" ng-model="current.Gst3" autocomplete="off" />
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="TotalPrice3">Harga Jualan</label>
+                </th>
+                <td>
+                    <input id="TotalPrice3" name="TotalPrice3" type="number" ng-model="current.TotalPrice3" autocomplete="off" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table class="form-table-horizontal" ng-show="tab == 3">
+
+        <tr>
+            <th>
+                <label for="TotalCashPrice">Jumlah Harga Jualan</label>
+            </th>
+
+            <td>
+                <input id="TotalCashPrice" name="TotalCashPrice" type="number" ng-model="current.TotalCashPrice" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Rebate">Rebeh</label>
+            </th>
+
+            <td>
+                <input id="Rebate" name="Rebate" type="number" ng-model="current.Rebate" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="FirstPayment">Ansuran Pertama</label>
+            </th>
+
+            <td>
+                <input id="FirstPayment" name="FirstPayment" type="number" ng-model="current.FirstPayment" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="FinanceAmount">Baki Harga Jualan</label>
+            </th>
+
+            <td>
+                <input id="FinanceAmount" name="FinanceAmount" type="number" ng-model="current.FinanceAmount" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="LoanPeriod">Tempoh Ausuran</label>
+            </th>
+
+            <td>
+                <input id="LoanPeriod" name="LoanPeriod" type="number" ng-model="current.LoanPeriod" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="MonthlyAmount">Ansuran Bulanan</label>
+            </th>
+
+            <td>
+                <input id="MonthlyAmount" name="MonthlyAmount" type="number" ng-model="current.MonthlyAmount" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="AgreementNo">No Perjanjian</label>
+            </th>
+
+            <td>
+                <input id="AgreementNo" name="AgreementNo" type="text" ng-model="current.AgreementNo" autocomplete="off" />
+            </td>
+        </tr>
+    </table>
+
+
+    <table class="form-table-horizontal">
+        <tr>
+            <td>
+                <button class="form-button" ng-disabled="!myForm.$valid || isDisabled">Save</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center">
+                <a class="link" href="" ng-click="print()">Print</a>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+<menu id="menu">
+    <button class="menu-button-std" ng-class="{'active': tab == 1}" ng-click="changeTab(1)">Customer</button>
+    <button class="menu-button-std" ng-class="{'active': tab == 2}" ng-click="changeTab(2)">Item</button>
+    <button class="menu-button-std" ng-class="{'active': tab == 3}" ng-click="changeTab(3)">Loan</button>
+</menu>
+
+
+
+
+
+
+

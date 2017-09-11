@@ -1,0 +1,209 @@
+﻿ <form name="myForm" ng-submit="submitForm(myForm)" novalidate style="margin: 120px auto 70px auto" >
+    <table class="form-table-horizontal">
+        <tr>
+            <th>
+                <label for="TtpMonth">TTP</label>
+            </th>
+            <td>
+                <table>
+                    <tr>
+                        <td style="width: 50%; padding: 0">
+                            <select id="TtpMonth" name="TtpMonth" ng-model="current.TtpMonth" ng-change="onCalculate()">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </td>
+                        <td style="padding: 0 0 0 10px">
+                            <input type="number" id="TtpYear" min="2017" max="2999" name="TtpYear" ng-model="current.TtpYear" ng-change="onCalculate()" autocomplete="off" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="WorkingMonth">Working Month</label>
+            </th>
+            <td>
+                <b ng-bind="current.WorkingMonth"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="MaxLoanPeriod">Max Loan Period</label>
+            </th>
+            <td>
+                <b ng-bind="current.MaxLoanPeriod"></b>
+            </td>
+        </tr>
+
+
+
+        <tr ng-show="isPriceMode">
+            <th>
+                <label for="SalePrice">Retail Price (No GST)</label>
+            </th>
+            <td>
+                <input type="number" id="RetailPrice" name="RetailPrice" min="0" max="9999" ng-model="current.RetailPrice" ng-blur="onCalculate()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr ng-show="!isPriceMode">
+            <th>
+                <label for="MonthlyAmount">Monthly Amount</label>
+            </th>
+            <td>
+                <input type="number" id="MonthlyAmount" name="MonthlyAmount" min="0" max="9999" ng-model="current.MonthlyAmount" ng-blur="onCalculate()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="LoanPeriod">Loan Period</label>
+            </th>
+            <td>
+                <input type="number" id="LoanPeriod" name="LoanPeriod" min="6" max="60" ng-model="current.LoanPeriod" ng-blur="onCalculate()" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Item">Item</label>
+            </th>
+            <td>
+
+
+                <select id="Item" name="Item" ng-model="current.Item"
+                        ng-options="item as item.Name for item in groups track by item.Name"
+                        ng-change="onCalculate()"></select>
+            </td>
+        </tr>
+
+        <tr ng-show="!isPriceMode">
+            <th>
+                <label for="RetailPrice">Retail Price (No GST)</label>
+            </th>
+
+            <td style="font-size: 22px">
+                <b ng-bind="'RM ' + (current.RetailPrice | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr ng-show="isPriceMode">
+            <th>
+                <label for="MonthlyAmount">Monthly Amount</label>
+            </th>
+
+            <td style="font-size: 22px">
+                <b ng-bind="'RM ' + (current.MonthlyAmount | number: 2)"></b>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="LoanCharge"> Loan Charges <span ng-bind="current.LoanChargeRate | number"></span>%</label>
+            </th>
+            <td>
+                <b ng-bind="'RM ' + (current.LoanCharge | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="SalePrice"> Cash Price</label>
+            </th>
+            <td>
+                <b ng-bind="'RM ' + (current.SalePrice | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Insurance">Insurance <span ng-bind="current.InsuranceRate | number: 1"></span>%</label>
+            </th>
+
+            <td>
+                <b ng-bind="'RM ' + (current.Insurance | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="TotalPrice">Total Price</label>
+            </th>
+
+            <td>
+                <b ng-bind="'RM ' + (current.TotalPrice | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Gst">GST <span ng-bind="current.GstRate | number: 1"></span>%</label>
+            </th>
+
+            <td>
+                <b ng-bind="'RM ' + (current.Gst | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="FinanceAmount">Finance Amount</label>
+            </th>
+
+            <td>
+                <b ng-bind="'RM ' + (current.FinanceAmount | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Interest">Rebate <span ng-bind="current.InterestRate | number: 1"></span>%</label>
+            </th>
+
+            <td>
+                <b ng-bind="'RM ' + (current.Interest | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="LoanAmount">Loan Amount</label>
+            </th>
+
+            <td style="font-size: 22px">
+                <b ng-bind="'RM ' + (current.LoanAmount | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button type="button" ng-click="applyLoan()" ng-disabled="isDisabled" class="form-button">Apply</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<menu id="menu">
+    <button class="menu-button-std " ng-class="{'active': isPriceMode}" ng-click="isPriceMode = true">Retail Price</button>
+    <button class="menu-button-std" ng-class="{'active': !isPriceMode}" ng-click="isPriceMode = false">Monthly Amount</button>
+</menu>
+

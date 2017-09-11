@@ -1,0 +1,627 @@
+﻿
+<form name="myForm" ng-submit="submitForm(myForm)" novalidate style="margin: 120px auto 70px auto">
+    <table class="form-table-horizontal" ng-show="tab == 1"> 
+        <tr>
+            <th colspan="2">
+                <a class="link" href="https://uplus.blob.core.windows.net/uplus-web/idscanner.apk" target="_system">Download ID Scanner</a>
+            </th>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="mykad">Mykad Info</label>
+            </th>
+            <td>
+                <textarea id="mykad" name="mykad" rows="2" style="height: auto" ng-model="mykad" ng-blur="onEnterMykad()"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Code">No IC</label>
+            </th>
+            <td>
+                <input id="Code" name="Code" type="text" ng-model="current.Code" maxlength="20" required autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Name">Nama</label>
+            </th>
+            <td>
+                <input type="text" id="Name" name="Name" ng-model="current.Name" maxlength="100" required autocomplete="off" />
+            </td>
+        </tr> 
+
+        <tr>
+            <th>
+                <label for="Address">Alamat</label>
+            </th>
+            <td>
+                <textarea id="Address" name="Address" ng-model="current.Address" required></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Phone">No Tel Bimbit</label>
+            </th>
+            <td>
+                <input type="tel" id="Phone" name="Phone" ng-model="current.Phone" maxlength="20" required autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="AddressType">Jenis Kediaman</label>
+            </th>
+            <td>
+                <select id="AddressType" name="AddressType" ng-model="current.AddressType">
+                    <option value=""></option>
+                    <option value="Rumah Sendiri">Rumah Sendiri</option>
+                    <option value="Rumah Ibu Bapa">Rumah Ibu Bapa</option>
+                    <option value="Rumah Saudara">Rumah Saudara</option>
+                    <option value="Rumah Sewa">Rumah Sewa</option>
+                    <option value="Kediaman Syarikat">Kediaman Syarikat</option>
+                    <option value="Lain-Lain">Lain-Lain</option>
+                </select> 
+            </td>
+        </tr>
+
+        <tr ng-show="current.AddressType == 'Lain-Lain'">
+            <th>
+                <label for="AddressTypeOther">Jenis Kediaman</label>
+            </th>
+            <td>
+                <input type="text" id="AddressTypeOther" name="AddressTypeOther" ng-model="current.AddressTypeOther" maxlength="100" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="LengthOfStayYear">Tempoh Menetap</label>
+            </th>
+            <td>
+                <table>
+                    <tr>
+                        <td style="padding: 0; width: 50%">
+                            <input id="LengthOfStayYear" name="LengthOfStayYear" type="number" ng-model="current.LengthOfStayYear" placeholder="Year" autocomplete="off" />
+                        </td>
+                        <td style="padding: 0 0 0 10px; width: 50%">
+                            <input id="LengthOfStayMonth" name="LengthOfStayMonth" type="number" ng-model="current.LengthOfStayMonth" placeholder="Month" autocomplete="off" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="TotalDependant">Tanggungan Anak</label>
+            </th>
+            <td>
+                <input type="number" id="TotalDependant" name="TotalDependant" ng-model="current.TotalDependant"  autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="MarriageStatus">Taraf Perkahwinan</label>
+            </th>
+            <td>
+                <select id="MarriageStatus" name="MarriageStatus" ng-model="current.MarriageStatus">
+                    <option value=""></option>
+                    <option value="Berkahwin">Berkahwin</option>
+                    <option value="Bujang">Bujang</option>
+                    <option value="Balu/Duda">Balu/Duda</option>
+                    <option value="Bercerai">Bercerai</option>                     
+                </select>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Race">Kaum</label>
+            </th>
+            <td>
+                <select id="Race" name="Race" ng-model="current.Race">
+                    <option value=""></option>
+                    <option value="Melayu">Melayu</option>
+                    <option value="Cina">Cina</option>
+                    <option value="India">India</option>
+                    <option value="Iban">Iban</option>
+                    <option value="Bidayuh">Bidayuh</option>
+                    <option value="Lain-Lain">Lain-Lain</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr ng-show="current.Race == 'Lain-Lain'">
+            <th>
+                <label for="RaceOther">Kaum</label>
+            </th>
+            <td>
+                <input type="text" id="RaceOther" name="RaceOther" ng-model="current.RaceOther" maxlength="100" autocomplete="off" />
+            </td>
+        </tr>
+    </table>
+
+    <table class="form-table-horizontal" ng-show="tab == 2">
+        <tr>
+            <th>
+                <label for="Company">Nama Syarikat</label>
+            </th>
+
+            <td>
+                <input id="Company" name="Company" type="text" ng-model="current.Company" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="CompanyAddress">Alamat Syarikat</label>
+            </th>
+
+            <td>
+                <textarea id="CompanyAddress" name="CompanyAddress" ng-model="current.CompanyAddress"  ></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="CompanyPhone">Tel No Syarikat</label>
+            </th>
+
+            <td>
+                <input id="CompanyPhone" name="CompanyPhone" type="tel" ng-model="current.CompanyPhone" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="ServiceLengthYear">Tempoh Khidmat</label>
+            </th>
+            <td>
+                <table>
+                    <tr>
+                        <td style="padding: 0; width: 50%">
+                            <input id="ServiceLengthYear" name="ServiceLengthYear" type="number" ng-model="current.ServiceLengthYear" placeholder="Year" autocomplete="off" />
+                        </td>
+                        <td style="padding: 0 0 0 10px; width: 50%">
+                            <input id="ServiceLengthMonth" name="ServiceLengthMonth" type="number" ng-model="current.ServiceLengthMonth" placeholder="Month" autocomplete="off" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="PayDay">Tarikh Gaji</label>
+            </th>
+
+            <td>
+                <input id="PayDay" name="PayDay" type="number" ng-model="current.PayDay" autocomplete="off" />
+            </td>
+        </tr> 
+
+        <tr>
+            <th>
+                <label for="Salary">Gaji Bersih Sebulan</label>
+            </th>
+
+            <td>
+                <input id="Salary" name="Salary" type="number" ng-model="current.Salary" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Occupation">Jawatan</label>
+            </th>
+
+            <td>
+                <input id="Occupation" name="Occupation" type="text" ng-model="current.Occupation" autocomplete="off" />
+            </td>
+        </tr> 
+
+        <tr>
+            <th>
+                <label for="Bank">Bank</label>
+            </th>
+
+            <td>
+                <input id="Bank" name="Bank" type="text" ng-model="current.Bank" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="BankAccountNo">No Akaun Bank</label>
+            </th>
+
+            <td>
+                <input id="BankAccountNo" name="BankAccountNo" type="text" ng-model="current.BankAccountNo" autocomplete="off" />
+            </td>
+        </tr>  
+    </table>
+
+    <table class="form-table-horizontal" ng-show="tab == 3">
+        <tr>
+            <th>
+                <label for="Relative">Nama Saudara</label>
+            </th>
+
+            <td>
+                <input id="Relative" name="Relative" type="text" ng-model="current.Relative" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="RelativeAddress">Alamat Saudara</label>
+            </th>
+
+            <td>
+                <textarea id="RelativeAddress" name="RelativeAddress" ng-model="current.RelativeAddress"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="RelativePhone">No Tel Bimbit</label>
+            </th>
+
+            <td>
+                <input id="RelativePhone" name="RelativePhone" type="tel" ng-model="current.RelativePhone" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="RelativePhoneOffice">No Tel Of fice</label>
+            </th>
+
+            <td>
+                <input id="RelativePhoneOffice" name="RelativePhoneOffice" type="tel" ng-model="current.RelativePhoneOffice" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Relationship">Hubungan</label>
+            </th>
+            <td>
+                <select id="Relationship" name="Relationship" ng-model="current.Relationship">
+                    <option value=""></option>
+                    <option value="Ibu Bapa">Ibu Bapa</option>
+                    <option value="Saudara">Saudara</option>                     
+                    <option value="Lain-Lain">Lain-Lain</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr ng-show="current.Relationship == 'Lain-Lain'">
+            <th>
+                <label for="RelationshipOther">Hubungan</label>
+            </th>
+            <td>
+                <input type="text" id="RelationshipOther" name="RelationshipOther" ng-model="current.RelationshipOther" maxlength="100" autocomplete="off" />
+            </td>
+        </tr>
+    </table>
+
+    <table class="form-table-horizontal" ng-show="tab == 4">
+        <tr>
+            <td colspan="2"><b>Item 1</b></td>
+        </tr>
+        <tr>
+            <th>
+                <label for="Brand1">Jenama</label>
+            </th>
+
+            <td>
+                <input id="Brand1" name="Brand1" type="text" ng-model="current.Brand1" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Model1">Model</label>
+            </th>
+
+            <td>
+                <input id="Model1" name="Model1" type="text" ng-model="current.Model1" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Price1">Price</label>
+            </th>
+
+            <td>
+                <input id="Price1" name="Price1" type="number" ng-model="current.Price1" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><b>Item 2</b></td>
+        </tr>
+        <tr>
+            <th>
+                <label for="Brand2">Jenama</label>
+            </th>
+
+            <td>
+                <input id="Brand2" name="Brand2" type="text" ng-model="current.Brand2" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Model2">Model</label>
+            </th>
+
+            <td>
+                <input id="Model2" name="Model2" type="text" ng-model="current.Model2" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Price2">Price</label>
+            </th>
+
+            <td>
+                <input id="Price2" name="Price2" type="number" ng-model="current.Price2" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><b>Item 3</b></td>
+        </tr>
+        <tr>
+            <th>
+                <label for="Brand3">Jenama</label>
+            </th>
+
+            <td>
+                <input id="Brand3" name="Brand3" type="text" ng-model="current.Brand3" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Model3">Model</label>
+            </th>
+
+            <td>
+                <input id="Model3" name="Model3" type="text" ng-model="current.Model3" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Price3">Price</label>
+            </th>
+
+            <td>
+                <input id="Price3" name="Price3" type="number" ng-model="current.Price3" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+        
+       
+    </table>
+
+    <table class="form-table-horizontal" ng-show="tab == 5">
+        <tr>
+            <th>
+                <label for="TotalCashPrice">Jumlah Harga Belian</label>
+            </th>
+
+            <td>
+                <input id="TotalCashPrice" name="TotalCashPrice" type="number" ng-model="current.TotalCashPrice" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="AgreementFee">Yuran Perjanjian</label>
+            </th>
+
+            <td>
+                <input id="AgreementFee" name="AgreementFee" type="number" ng-model="current.AgreementFee" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="InterestRate">Kadar Faedah %</label>
+            </th>
+
+            <td>
+                <input id="InterestRate" name="InterestRate" type="number" ng-model="current.InterestRate" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Downpayment">Bayaran Pendahaluan</label>
+            </th>
+
+            <td>
+                <input id="Downpayment" name="Downpayment" type="number" ng-model="current.Downpayment" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="FinanceAmount">Harga Ansuran Mudah</label>
+            </th>
+
+            <td>
+                <input id="FinanceAmount" name="FinanceAmount" type="number" ng-model="current.FinanceAmount" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="InitialPayment">Bayaran Pertama</label>
+            </th>
+
+            <td>
+                <input id="InitialPayment" name="InitialPayment" type="number" ng-model="current.InitialPayment" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="BalanceSum">Baki Bayaran</label>
+            </th>
+
+            <td>
+                <input id="BalanceSum" name="BalanceSum" type="number" ng-model="current.BalanceSum" autocomplete="off" />
+            </td>
+        </tr> 
+
+        <tr>
+            <th>
+                <label for="LoanPeriod">Tempoh Ansuran</label>
+            </th>
+
+            <td>
+                <input id="LoanPeriod" name="LoanPeriod" type="number" ng-model="current.LoanPeriod" ng-blur="onCalc()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="MonthlyAmount">Ansuran Bulanan</label>
+            </th>
+
+            <td>
+                <input id="MonthlyAmount" name="MonthlyAmount" type="number" ng-model="current.MonthlyAmount" autocomplete="off" />
+            </td>
+        </tr>
+    </table>
+
+    <!--<table class="form-table-horizontal" ng-show="tab == 5">
+        <tr>
+            <th>
+                <label for="Rebate">IC (Front)</label>
+            </th>
+
+            <td>
+                <a class="link" ng-show="!current.IcFront" ng-click="takePhoto('IcFront')" href="">Camera</a> |
+                <a class="link" ng-show="!current.IcFront" ng-click="pickPhoto('IcFront')" href="">Gallery</a>  
+                <a class="link" ng-show="current.IcFront" ng-click="removePhoto('IcFront')" href="">Remove</a>
+                <img ng-src="{{current.IcFront}}" ng-show="current.IcFront" ng-click="showPhoto('IcFront')" class="aeonPhoto" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Rebate">IC (Back)</label>
+            </th>
+
+            <td>
+                <a class="link" ng-show="!current.IcBack" ng-click="takePhoto('IcBack')" href="">Camera</a> |
+                <a class="link" ng-show="!current.IcBack" ng-click="pickPhoto('IcBack')" href="">Gallery</a>
+                <a class="link" ng-show="current.IcBack" ng-click="removePhoto('IcBack')" href="">Remove</a>
+                <img ng-src="{{current.IcBack}}" ng-show="current.IcBack" ng-click="showPhoto('IcBack')" class="aeonPhoto" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="Rebate">Bank Account</label>
+            </th>
+            <td>
+                <a class="link" ng-show="!current.BankAccount" ng-click="takePhoto('BankAccount')" href="">Camera</a> |
+                <a class="link" ng-show="!current.BankAccount" ng-click="pickPhoto('BankAccount')" href="">Gallery</a>
+                <a class="link" ng-show="current.BankAccount" ng-click="removePhoto('BankAccount')" href="">Remove</a>
+                <img ng-src="{{current.BankAccount}}" ng-show="current.BankAccount" ng-click="showPhoto('BankAccount')" class="aeonPhoto" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Rebate">Payslip</label>
+            </th> 
+            <td>
+                <a class="link" ng-show="!current.Payslip" ng-click="takePhoto('Payslip')" href="">Camera</a> |
+                <a class="link" ng-show="!current.Payslip" ng-click="pickPhoto('Payslip')" href="">Gallery</a>
+                <a class="link" ng-show="current.Payslip" ng-click="removePhoto('Payslip')" href="">Remove</a>
+                <img ng-src="{{current.Payslip}}" ng-show="current.Payslip" ng-click="showPhoto('Payslip')" class="aeonPhoto" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Rebate">Payslip 2</label>
+            </th> 
+            <td>
+                <a class="link" ng-show="!current.Payslip2" ng-click="takePhoto('Payslip2')" href="">Camera</a> |
+                <a class="link" ng-show="!current.Payslip2" ng-click="pickPhoto('Payslip2')" href="">Gallery</a>
+                <a class="link" ng-show="current.Payslip2" ng-click="removePhoto('Payslip2')" href="">Remove</a>
+                <img ng-src="{{current.Payslip2}}" ng-show="current.Payslip2" ng-click="showPhoto('Payslip2')" class="aeonPhoto" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
+                <label for="Rebate">Payslip 3</label>
+            </th> 
+            <td>
+                <a class="link" ng-show="!current.Payslip3" ng-click="takePhoto('Payslip3')" href="">Camera</a> |
+                <a class="link" ng-show="!current.Payslip3" ng-click="pickPhoto('Payslip3')" href="">Gallery</a>
+                <a class="link" ng-show="current.Payslip3" ng-click="removePhoto('Payslip3')" href="">Remove</a>
+                <img ng-src="{{current.Payslip3}}" ng-show="current.Payslip3" ng-click="showPhoto('Payslip3')" class="aeonPhoto" />
+            </td>
+        </tr> 
+    </table>-->
+
+
+
+    <table class="form-table-horizontal">
+        <tr>
+            <td>
+                <button class="form-button" ng-disabled="!myForm.$valid || isDisabled">Save</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: center">
+                <a class="link" href="" ng-click="print()">Print</a>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+
+
+
+
+<menu id="menu">
+    <button class="menu-button-std" ng-class="{'active': tab == 1}" ng-click="changeTab(1)">Customer</button>
+    <button class="menu-button-std" ng-class="{'active': tab == 2}" ng-click="changeTab(2)">Job</button>
+    <button class="menu-button-std" ng-class="{'active': tab == 3}" ng-click="changeTab(3)">Relative</button>
+    <button class="menu-button-std" ng-class="{'active': tab == 4}" ng-click="changeTab(4)">Item</button>
+    <button class="menu-button-std" ng-class="{'active': tab == 5}" ng-click="changeTab(5)">Loan</button>
+</menu>
+
+
+
+

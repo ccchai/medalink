@@ -1,0 +1,13 @@
+﻿<div class="data-list" style="margin: 60px 0">
+    <a  class="list-item" bindonce bo-href="'#/contact/' + model.Id" ng-repeat="model in list">
+        <b class="list-item-b" bo-bind="model.Name"></b> 
+        <span class="list-item-span" bo-if="!model.AssignedTo" bo-bind="model.CreatedOn | date: 'd-M-yyyy h:mm a'"></span>
+        <span class="list-item-span" bo-if="model.AssignedTo" bo-bind="model.AssignedTo" ></span>
+        <div class="list-item-div" ng-class="model.AssignedTo ? 'icon-check' : 'icon-alert'"></div>
+    </a> 
+</div>
+
+<div class="body-div-nodata" ng-if="list && list.length === 0">Nothing to display.</div>
+
+<button ng-click="refreshData()" ng-disabled="isDisabled" class="header-button-action icon-refresh"></button>
+  

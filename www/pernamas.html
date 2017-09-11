@@ -1,0 +1,16 @@
+﻿<div class="data-list" style="margin: 110px 0 60px 0"> 
+
+    <a class="list-item" bindonce bo-href="'#/pernama/' + model.Id" ng-repeat="model in list">
+        <b class="list-item-b" bo-bind="model.Name">&nbsp;</b>
+        <span class="list-item-span" bo-bind="model.Item">&nbsp;</span>
+        <div class="list-item-div icon-check"></div>
+    </a> 
+</div>
+
+<div class="body-div-nodata" ng-if="list && list.length === 0">Nothing to display.</div>
+
+
+<menu id="menu">  
+    <a href="#/aeons" style="text-decoration: none" class="menu-button-std">Aeon</a>
+    <button class="menu-button-std active">Pernama</button>
+</menu>

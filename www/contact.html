@@ -1,0 +1,51 @@
+﻿ <form name="myForm" ng-submit="submitForm(myForm)" novalidate>
+    <table class="form-table-horizontal">
+        <tr>
+            <th>
+                <label for="">Name</label>
+            </th>
+       
+            <td ng-bind="current.Name">
+ 
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="">Phone</label>
+            </th>
+       
+            <td>
+                <a ng-href="{{'whatsapp://send?text=&phone=+6' + current.Phone}}" class="link" ng-bind="current.Phone"></a>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="">Assigned To</label>
+            </th>
+
+            <td ng-bind="current.AssignedTo"> 
+            </td>
+        </tr>
+
+        <tr ng-repeat="model in current.Answers">
+            <th>
+                <label for="" ng-bind="model.Code"> </label>
+            </th>
+
+            <td ng-bind="model.Answer">                 
+            </td>
+        </tr>
+
+       
+
+        <tr>
+            <td colspan="2">
+                <button class="form-button" ng-click="assignMe()"  ng-disabled="!myForm.$valid || isDisabled">Assign to Me</button>
+            </td>
+        
+             
+        </tr>
+    </table>
+</form>
