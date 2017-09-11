@@ -16,7 +16,7 @@
   <preference name="auto-hide-splash-screen" value="true"/>   
   <preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" /> 
   <preference name="LoadingPageDialog" value="Medalink,Loading ..."/> 
-  <preference name='phonegap-version' value='cli-6.5.0' />
+  <preference name='phonegap-version' value='cli-7.0.1' />
   <!--<preference name="android-build-tool" value="gradle" />
   <platform name="winphone|android" />-->
 
