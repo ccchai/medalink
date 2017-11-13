@@ -57,7 +57,7 @@
 
         <tr>
             <th>
-                <label for="Item">Item</label>
+                <label for="Item">Produk</label>
             </th>
             <td>
 
@@ -70,7 +70,7 @@
 
         <tr>
             <th>
-                <label for="Quantity">Quantity</label>
+                <label for="Quantity">Bilangan</label>
             </th>
             <td>
                 <select id="Quantity" name="Quantity" ng-model="current.Quantity" ng-change="onCalculate()">
@@ -82,33 +82,13 @@
 
         <tr>
             <th>
-                <label for="LoanPeriod">Loan Period</label>
+                <label for="LoanPeriod">Tempoh Ansuran</label>
             </th>
             <td>
                 <input type="number" id="LoanPeriod" name="LoanPeriod" min="6" max="60" ng-model="current.LoanPeriod"  ng-blur="onCalculate()" autocomplete="off" />
             </td>
-        </tr>
-
-
-        <tr>
-            <th>
-                <label for="MonthlyAmount">Monthly Amount</label>
-            </th>
-
-            <td style="font-size: 22px">
-                <b ng-bind="'RM ' + (current.MonthlyAmount | number: 2)"></b>
-            </td>
-        </tr>
-
-        <tr>
-            <th>
-                <label for="LoanAmount">Loan Amount</label>
-            </th>
-
-            <td style="font-size: 22px">
-                <b ng-bind="'RM ' + (current.LoanAmount | number: 2)"></b>
-            </td>
-        </tr>
+        </tr> 
+     
 
         <!--<tr>
             <th>
@@ -121,7 +101,7 @@
 
         <tr>
             <th>
-                <label for="RetailPriceNoGst">Retail Price (No GST)</label>
+                <label for="RetailPriceNoGst">Harga Runcit (No GST)</label>
             </th>
 
             <td>
@@ -143,6 +123,17 @@
 
         <tr>
             <th>
+                <label for="">Harga Jualan</label>
+            </th>
+
+            <td>
+                <b ng-bind="'RM ' + (current.RetailPriceNoGst + current.Gst | number: 2)"></b>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th>
                 <label for="Rebate">Rebeh</label>
             </th>
 
@@ -151,6 +142,25 @@
             </td>
         </tr>
 
+        <tr>
+            <th>
+                <label for="LoanAmount">Baki Harga Jualan</label>
+            </th>
+
+            <td style="font-size: 22px">
+                <b ng-bind="'RM ' + (current.LoanAmount | number: 2)"></b>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="MonthlyAmount">Ansuran Bulanan</label>
+            </th>
+
+            <td style="font-size: 22px">
+                <b ng-bind="'RM ' + (current.MonthlyAmount | number: 2)"></b>
+            </td>
+        </tr>
 
         <tr>
             <th>

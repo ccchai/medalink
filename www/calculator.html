@@ -52,38 +52,9 @@
 
 
 
-        <tr ng-show="isPriceMode">
-            <th>
-                <label for="SalePrice">Retail Price (No GST)</label>
-            </th>
-            <td>
-                <input type="number" id="RetailPrice" name="RetailPrice" min="0" max="9999" ng-model="current.RetailPrice" ng-blur="onCalculate()" autocomplete="off" />
-            </td>
-        </tr>
-
-
-        <tr ng-show="!isPriceMode">
-            <th>
-                <label for="MonthlyAmount">Monthly Amount</label>
-            </th>
-            <td>
-                <input type="number" id="MonthlyAmount" name="MonthlyAmount" min="0" max="9999" ng-model="current.MonthlyAmount" ng-blur="onCalculate()" autocomplete="off" />
-            </td>
-        </tr>
-
-
         <tr>
             <th>
-                <label for="LoanPeriod">Loan Period</label>
-            </th>
-            <td>
-                <input type="number" id="LoanPeriod" name="LoanPeriod" min="6" max="60" ng-model="current.LoanPeriod" ng-blur="onCalculate()" autocomplete="off" />
-            </td>
-        </tr>
-
-        <tr>
-            <th>
-                <label for="Item">Item</label>
+                <label for="Item">Produk</label>
             </th>
             <td>
 
@@ -94,23 +65,37 @@
             </td>
         </tr>
 
-        <tr ng-show="!isPriceMode">
-            <th>
-                <label for="RetailPrice">Retail Price (No GST)</label>
-            </th>
 
-            <td style="font-size: 22px">
-                <b ng-bind="'RM ' + (current.RetailPrice | number: 2)"></b>
+    
+
+    
+
+        <tr>
+            <th>
+                <label for="LoanPeriod">Tempoh Ansuran</label>
+            </th>
+            <td>
+                <input type="number" id="LoanPeriod" name="LoanPeriod" min="6" max="60" ng-model="current.LoanPeriod" ng-blur="onCalculate()" autocomplete="off" />
             </td>
         </tr>
 
         <tr ng-show="isPriceMode">
             <th>
-                <label for="MonthlyAmount">Monthly Amount</label>
+                <label for="SalePrice">Harga Produk (No GST)</label>
+            </th>
+            <td>
+                <input type="number" id="RetailPrice" name="RetailPrice" min="0" max="9999" ng-model="current.RetailPrice" ng-blur="onCalculate()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr ng-show="!isPriceMode">
+            <th>
+                <label for="RetailPrice">Harga Produk (No GST)</label>
             </th>
 
             <td style="font-size: 22px">
-                <b ng-bind="'RM ' + (current.MonthlyAmount | number: 2)"></b>
+                <b ng-bind="'RM ' + (current.RetailPrice | number: 2)"></b>
             </td>
         </tr>
 
@@ -135,7 +120,7 @@
 
         <tr>
             <th>
-                <label for="Insurance">Insurance <span ng-bind="current.InsuranceRate | number: 1"></span>%</label>
+                <label for="Insurance">Insuran <span ng-bind="current.InsuranceRate | number: 1"></span>%</label>
             </th>
 
             <td>
@@ -145,7 +130,7 @@
 
         <tr>
             <th>
-                <label for="TotalPrice">Total Price</label>
+                <label for="TotalPrice">Harga Runcit</label>
             </th>
 
             <td>
@@ -165,7 +150,7 @@
 
         <tr>
             <th>
-                <label for="FinanceAmount">Finance Amount</label>
+                <label for="FinanceAmount">Harga Jualan</label>
             </th>
 
             <td>
@@ -185,13 +170,57 @@
 
         <tr>
             <th>
-                <label for="LoanAmount">Loan Amount</label>
+                <label for="LoanAmount">Baki Harga Jualan</label>
             </th>
 
             <td style="font-size: 22px">
                 <b ng-bind="'RM ' + (current.LoanAmount | number: 2)"></b>
             </td>
         </tr>
+
+        <tr ng-show="!isPriceMode">
+            <th>
+                <label for="MonthlyAmount">Ansuran Bulanan</label>
+            </th>
+            <td>
+                <input type="number" id="MonthlyAmount" name="MonthlyAmount" min="0" max="9999" ng-model="current.MonthlyAmount" ng-blur="onCalculate()" autocomplete="off" />
+            </td>
+        </tr>
+
+
+        <tr ng-show="isPriceMode">
+            <th>
+                <label for="MonthlyAmount">Ansuran Bulanan</label>
+            </th>
+
+            <td style="font-size: 22px">
+                <b ng-bind="'RM ' + (current.MonthlyAmount | number: 2)"></b>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td colspan="2">
+                <div class="body-div-nodata" ng-show="suggestions && suggestions.length  == 0">No promotions is found.</div>
+
+                <div class="data-list" ng-show="suggestions && suggestions.length  > 0">
+                    <div class="body-div-nodata">Suggestions:</div>
+
+
+                    <div class="list-item" bindonce ng-repeat="model in suggestions">
+                        <b class="list-item-b" bo-bind="model.Sku + ': ' + model.Name">&nbsp;</b>
+                        <span class="list-item-span" >Monthly: RM 
+                            <span bo-bind="model.MonthlyAmount | number: 2"></span>,
+                        Loan: RM
+                            <span bo-bind="model.LoanAmount | number: 2"></span>
+                        </span>
+                        <div class="list-item-div icon-check"></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
 
         <tr>
             <td colspan="2">
