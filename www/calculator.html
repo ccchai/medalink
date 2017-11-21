@@ -75,7 +75,7 @@
                 <label for="LoanPeriod">Tempoh Ansuran</label>
             </th>
             <td>
-                <input type="number" id="LoanPeriod" name="LoanPeriod" min="6" max="60" ng-model="current.LoanPeriod" ng-blur="onCalculate()" autocomplete="off" />
+                <input type="number" id="LoanPeriod" name="LoanPeriod" min="1" max="60" ng-model="current.LoanPeriod" ng-blur="onCalculate()" autocomplete="off" />
             </td>
         </tr>
 
@@ -234,5 +234,6 @@
 <menu id="menu">
     <button class="menu-button-std " ng-class="{'active': isPriceMode}" ng-click="isPriceMode = true">Retail Price</button>
     <button class="menu-button-std" ng-class="{'active': !isPriceMode}" ng-click="isPriceMode = false">Monthly Amount</button>
+    <button class="menu-button-std" ng-click="onCalculate()" style="cursor: pointer">Run</button>
 </menu>
 
