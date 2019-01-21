@@ -1,6 +1,6 @@
 ﻿
 <form name="myForm" ng-submit="submitForm(myForm)" novalidate style="margin: 120px auto 70px auto">
-    <table class="form-table-horizontal" ng-show="tab == 1"> 
+    <table class="form-table-horizontal" ng-show="tab == 1">
         <tr>
             <th colspan="2">
                 <a class="link" href="https://uplus.blob.core.windows.net/uplus-web/idscanner.apk" target="_system">Download ID Scanner</a>
@@ -32,7 +32,7 @@
             <td>
                 <input type="text" id="Name" name="Name" ng-model="current.Name" maxlength="100" required autocomplete="off" />
             </td>
-        </tr> 
+        </tr>
 
         <tr>
             <th>
@@ -54,6 +54,15 @@
 
         <tr>
             <th>
+                <label for="Email">Emel</label>
+            </th>
+            <td>
+                <input type="email" id="Email" name="Email" ng-model="current.Email" maxlength="50"   autocomplete="off" />
+            </td>
+        </tr>
+
+        <tr>
+            <th>
                 <label for="AddressType">Jenis Kediaman</label>
             </th>
             <td>
@@ -65,7 +74,7 @@
                     <option value="Rumah Sewa">Rumah Sewa</option>
                     <option value="Kediaman Syarikat">Kediaman Syarikat</option>
                     <option value="Lain-Lain">Lain-Lain</option>
-                </select> 
+                </select>
             </td>
         </tr>
 
@@ -102,7 +111,7 @@
                 <label for="TotalDependant">Tanggungan Anak</label>
             </th>
             <td>
-                <input type="number" id="TotalDependant" name="TotalDependant" ng-model="current.TotalDependant"  autocomplete="off" />
+                <input type="number" id="TotalDependant" name="TotalDependant" ng-model="current.TotalDependant" autocomplete="off" />
             </td>
         </tr>
 
@@ -117,7 +126,7 @@
                     <option value="Berkahwin">Berkahwin</option>
                     <option value="Bujang">Bujang</option>
                     <option value="Balu/Duda">Balu/Duda</option>
-                    <option value="Bercerai">Bercerai</option>                     
+                    <option value="Bercerai">Bercerai</option>
                 </select>
             </td>
         </tr>
