@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="my.com.uplus.medalink" version="0.1.0" android-versionCode="1000" xmlns:android = "http://schemas.android.com/apk/res/android">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="my.com.uplus.medalink" version="0.1.1" android-versionCode="1010" xmlns:android = "http://schemas.android.com/apk/res/android">
   <name>Medalink</name>
   <description>For staffs only.</description>
   <author href="http://www.uplus.com.my" email="ccchai@uplus.com.my">Uplus Software</author>
