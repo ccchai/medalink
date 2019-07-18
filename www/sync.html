@@ -1,8 +1,10 @@
 ﻿<div style="padding: 70px 10px; text-align: center">
     <h1>Calculator</h1>
     <div ng-bind="current.lastSync | date: 'd-M-yyyy h:mm a'"></div>
-    <h1 style="margin: 50px 0 20px 0">Pernama</h1>
-    <div ng-bind="current.totalPernama"></div>
+    <!--<h1 style="margin: 50px 0 20px 0">Pernama</h1>
+    <div ng-bind="current.totalPernama"></div>-->
+    <h1 style="margin: 50px 0 20px 0">Exposure</h1>
+    <div ng-bind="current.totalExposure"></div>
     <h1 style="margin: 50px 0 20px 0">Aeon</h1>
     <div ng-bind="current.totalAeon"></div>
     <button class="form-button" ng-disabled="isDisabled" ng-click="sync()" style="margin: 50px auto">Sync</button>
