@@ -22,7 +22,7 @@
 
   <gap:plugin name="cordova-plugin-inappbrowser" source="npm" spec="*" />
  	<gap:plugin name="cordova-plugin-bluetooth-serial" source="npm" spec="*"/>
-  <gap:plugin name="cordova-plugin-fcm" source="npm" spec="*"/>
+ <!-- <gap:plugin name="cordova-plugin-fcm" source="npm" spec="*"/>-->
 
 
 
